@@ -1,0 +1,6 @@
+# robots file for Thisoe
+
+User-agent: *
+
+# Disallow: /
+Disallow: /admin
