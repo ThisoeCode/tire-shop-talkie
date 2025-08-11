@@ -9,11 +9,22 @@ navigator.serviceWorker.register('sw.js?v=sw3',{scope:'/admin/accountance'})
 
 $(_=>{
 
-/////// INIT
+/////// INIT & CONFIG
 
 const
   /** Date obj `...string` => Unix timestamp (sec) */
-  UNIXFY =(..._)=> Math.floor(new Date(_).getTime() / 1000)
+  UNIXFY = (...args)=>{ // GPT-5 helped fixing
+    let d
+    if(args.length === 1){
+      d = new Date(args[0])
+    }else if(args.length >= 3 && args.every(v => typeof v === 'number')){
+      const [y, m, day, ...rest] = args
+      d = new Date(y, m - 1, day, ...rest)
+    }else{
+      d = new Date(...args)
+    }
+    return Math.floor(d.getTime() / 1000)
+  }
 
 let
   // TODAY
@@ -58,9 +69,10 @@ const
   arow=adata=>{
     const
       {row, dt:unix, carid, opts=[], ttl} = adata,
-      nOpts = opts.length,
+      nOpts = `rowspan="${opts.length}"`,
+      R=`class="r${row}"`,
       trs = [],
-      $tr0 = $('<tr>'),
+      $tr0 = $(`<tr ${R}>`),
       firstOpt = opts[0] || {}
 
     // Calculations
@@ -73,10 +85,10 @@ const
 
     // First row
     $tr0
-      .append(`<td rowspan="${nOpts}"><input type="checkbox" class="sel" id="sel${row}"></td>`)
-      .append(`<td rowspan="${nOpts}" class="tdate">${dt(unix)}</td>`)
-      .append(`<td rowspan="${nOpts}" class="tcarid">${carid}</td>`)
-      .append(`<td rowspan="${nOpts}" class="tttl">${x0000(ttl)}${
+      .append(`<td ${nOpts}><input type="checkbox" class="sel" id="sel${row}"></td>`)
+      .append(`<td ${nOpts} class="tdate">${dt(unix)}</td>`)
+      .append(`<td ${nOpts} class="tcarid">${carid}</td>`)
+      .append(`<td ${nOpts} class="tttl">${x0000(ttl)}${
         diff!==0 ? ` <span>(${
           diff>0 ? `+${diff}` : diff
         })</span>`:''
@@ -95,7 +107,7 @@ const
     for(let i=1;i<opts.length;i++){
       const
         opt = opts[i],
-        $tr1 = $('<tr>')
+        $tr1 = $(`<tr ${R}>`)
       $tr1
         .append(`<td>${opt.desc||''}</td>`)
         .append(`<td>${x0000(opt.per)}</td>`)
@@ -115,7 +127,7 @@ const
   renderPoll=_=>{
     POLL(data=>{
       if(data.length>0) lastRow=data[0].dt
-      console.log(`[Thisoe] Polled ${data.length} data. (${dt(lastRow).slice(17)})`)
+      console.log(`[Thisoe] Polled ${data.length} data.`/* +` (${dt(lastRow).slice(17)})` */)
       let $after = $('#th')
       data.forEach(row=>{
         _||NOTIFICATE(row)
@@ -206,7 +218,26 @@ const
       carid: row.carid,
       ttl: x0000(row.ttl)||0,
     })
-  }}
+  }},
+
+  delsel=_=>{
+    const
+      getrow=_=>$(_).attr('id').slice(3),
+      rows=[]
+    $('.sel').each(function(){
+      $(this).prop('checked')
+        &&rows.push(getrow(this))
+    })
+    if(rows.length>0 && confirm(`삭제는 되돌릴 수 없습니다.\n이 ${rows.length}개행를 삭제하시겠습니까?`)){
+      rows.forEach( row => $(`.r${row}`).remove() )
+      $('#selall').prop('checked',false)
+      $.post('api/del',{rows})
+        .fail((xhr,status,error)=>{
+          console.error('[삭제 전송 실패] jqXHR:')
+          console.dir({xhr,status,error})
+        })
+    }
+  }
 
 
 
@@ -265,17 +296,34 @@ $('#notification').click(function(){
 // DEL
 $('table').on('change','.sel',function(){
   const
-    selall=$('#selall'),
-    // id = $(this).attr('id').slice(3),
+    $all=$('#selall'),
     ischecked = $(this).prop('checked'),
-    isAllChecked=$('.sel').length===$('.sel:checked').length
-  ischecked||selall.prop('checked',false)
-  ischecked&&isAllChecked&&selall.prop('checked',true)
+    isAllChecked=$('.sel').length===$('.sel:checked').length,
+    isAllUnchecked=$('.sel:checked').length===0
+  if(ischecked){
+    // check SELALL if all checked
+    isAllChecked&&$all.prop('checked',true)
+    // enable del btn
+    $('#delsel').prop('disabled',false)
+  }else{
+    // uncheck SELALL
+    $all.prop('checked',false)
+    // disable del btn if none checked
+    isAllUnchecked&&$('#delsel').prop('disabled',true)
+  }
 })
 $('table').on('change','#selall',function(){
   const
     isselall = $(this).prop('checked')
   $('.sel').prop('checked',isselall?true:false)
+  $('#delsel').prop('disabled',!isselall)
 })
+$('#delsel').click(delsel)
+$(document).on('keydown',function(e){
+  // delete key
+  if(e.which===46) delsel()
+})
+
+
 
 })

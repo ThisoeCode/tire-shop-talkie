@@ -33,6 +33,7 @@ $goto='accountance';require 'auth.php';
   </header>
 
   <i id="dtform">
+    <button id="delsel"disabled>삭제</button>
     <input type="date"id="calendar">
     <button id="limittoday"style="display:none">오늘</button>
   </i>
