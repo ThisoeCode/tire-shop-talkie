@@ -57,7 +57,7 @@ const
 // Add a row of data
   arow=adata=>{
     const
-      {dt:unix, carid, opts=[], ttl} = adata,
+      {row, dt:unix, carid, opts=[], ttl} = adata,
       nOpts = opts.length,
       trs = [],
       $tr0 = $('<tr>'),
@@ -73,6 +73,7 @@ const
 
     // First row
     $tr0
+      .append(`<td rowspan="${nOpts}"><input type="checkbox" class="sel" id="sel${row}"></td>`)
       .append(`<td rowspan="${nOpts}" class="tdate">${dt(unix)}</td>`)
       .append(`<td rowspan="${nOpts}" class="tcarid">${carid}</td>`)
       .append(`<td rowspan="${nOpts}" class="tttl">${x0000(ttl)}${
@@ -209,6 +210,7 @@ const
 
 
 
+//endof INIT (const)
 /////// RENDER
 
 // list table headers <th>
@@ -260,5 +262,20 @@ $('#notification').click(function(){
   }
 })
 
+// DEL
+$('table').on('change','.sel',function(){
+  const
+    selall=$('#selall'),
+    // id = $(this).attr('id').slice(3),
+    ischecked = $(this).prop('checked'),
+    isAllChecked=$('.sel').length===$('.sel:checked').length
+  ischecked||selall.prop('checked',false)
+  ischecked&&isAllChecked&&selall.prop('checked',true)
+})
+$('table').on('change','#selall',function(){
+  const
+    isselall = $(this).prop('checked')
+  $('.sel').prop('checked',isselall?true:false)
+})
 
 })

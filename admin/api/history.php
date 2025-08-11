@@ -13,16 +13,18 @@ $limitDays = isset($_GET['dur']) ? intval($_GET['dur']) : 1;
 $to = $from + ($limitDays * 86400);
 
 $stmt = $insu->prepare(
-  "SELECT ctnt FROM $tab WHERE dt > ? AND dt < ? ORDER BY `no` DESC LIMIT 500"
+  "SELECT ctnt,`no` FROM $tab WHERE dt > ? AND dt < ? ORDER BY `no` DESC LIMIT 500"
 );
 $stmt->bind_param("ii", $from, $to);
 $stmt->execute();
 $stmt->store_result();
 
 $data = [];
-$stmt->bind_result($ctnt);
+$stmt->bind_result($ctnt,$no);
 while ($stmt->fetch()) {
-  $data[] = json_decode($ctnt);
+  $row = json_decode($ctnt, true);
+  $row['row'] = $no;
+  $data[] = $row;
 }
 
 header('Content-Type: application/json');

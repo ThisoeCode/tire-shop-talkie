@@ -11,12 +11,12 @@ $goto='accountance';require 'auth.php';
   <link rel="icon"href="../public/favicon.ico"/>
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="src/config.js?v5"></script>
-  <script src="src/accountance.js?v13"></script>
+  <script src="src/config.js?v1"></script>
+  <script src="src/accountance.js?v1"></script>
   <!-- CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../public/svg.css?v1">
-  <link rel="stylesheet" href="src/_.css?v8">
+  <link rel="stylesheet" href="src/_.css?v1">
 </head>
 
 <body><i id="accountance">

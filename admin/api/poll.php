@@ -1,4 +1,4 @@
-<?php $goto='yard';require '../auth.php';
+<?php $goto='accountance';require '../auth.php';
 
 if(!isset($_GET['unix'])){
   http_response_code(400); die;

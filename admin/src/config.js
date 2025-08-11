@@ -24,8 +24,9 @@ PC = '.mounting,.oldwheel,.oldtire',
 
 
 // accountance
+/** <th> */
 columns={
-  // TODO del:'삭제',
+  select:'<input type="checkbox" id="selall">',
   time:'',
   carid:'차번호',
   ttl:'총액',

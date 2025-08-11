@@ -6,6 +6,7 @@
 
 /* table width */
 #accountance>table th{
+  &.select{width:16pt}
   &.time{width:39pt}
   &.carid{width:39pt}
   &.ttl{width:81pt;border-right:3px double #333;}
@@ -398,6 +399,12 @@ i,section{display:flex;flex-direction:column}
       &.tdate{font-size:12pt}
       &.tcarid{font-weight:bold;color:#055}
       &.tttl{font-weight:bold;border-right:3px double #333;}
+    }
+
+    & input[type=checkbox]{
+      width:12pt;height:12pt;
+      margin-top:3pt;
+      &#selall{box-shadow: 0 0 0 1px #333;}
     }
   }
 }
