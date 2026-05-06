@@ -5,29 +5,38 @@ options={
   newtire:'새 타이어',
   oldtire:'중고 타이어',
   punk:'펑크',
-  storing:'보관 등록',
-  alignment:'얼라인먼트',
   mounting:'탈/부착',
-  buyin:'매입',
-  // newwheel:'새 휠',
+  alignment:'얼라인먼트',
+  newwheel:'신품 휠',
   oldwheel:'중고 휠',
+  // storing:'보관 등록',
+  buyin:'매입',
+  discount:'할인',
   others:'기타',
+},
+checks={
+  isPassengerCar:'승용차',
+  // priceCheckNeeded:'기존단가확인필요 같은가격',
+  addon:'(추가)',
+  pressure:'전체공기압',
 },
 
 // options
 /** PRICE */
-PN = '.punk,.alignment',
+PN = '.alignment',
 /** COUNT */
 CN = '.storing',
-/** PRICE+UNITPRICE+COUNT */
-PC = '.mounting,.oldwheel,.oldtire',
+/** COUNT + PRICE */
+CP = '.mounting,.punk',
+/** PRICE + unitPRICE + COUNT */
+PUC = '.oldtire,.oldwheel',
 
 
 // accountance
 /** <th> */
 columns={
   select:'<input type="checkbox" id="selall">',
-  time:'',
+  time:'시간',
   carid:'차번호',
   ttl:'총액',
   desc:'구분/품목',
@@ -39,4 +48,13 @@ columns={
 
 
 // TIRES
-SIZE=['385','12R','295','315','245','425','445','205','215','225','235','265','275','285','9.5R','11R']
+TIRESIZES=['385','12R','295','315','245','425','445','205','215','225','235','265','275','285','9.5R','11R',],
+
+// WHEELS
+WHEELSIZES=['1300','1175','900','825','750','675',],
+is225=['1300','1175','900','825',],
+is195=['750','675',],
+WHEELcbs={
+  polished:['유광','무광'],
+  hole:['26mm','32mm',]
+}

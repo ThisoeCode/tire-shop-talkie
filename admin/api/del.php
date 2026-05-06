@@ -1,4 +1,6 @@
-<?php $goto='accountance';require '../auth.php';
+<?php
+// TODO: REQUIRE_AUTH
+// $goto='accountance';require '../auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405); die;

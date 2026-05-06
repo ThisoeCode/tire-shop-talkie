@@ -26,8 +26,11 @@ for customization or translation of the app to English, Chinese, or Japanese.
 ## TODO List for Repo Cloners
 
 1. Change site name (search codebase `ACME TIRE`)
+
 2. Change `public/` icon images
+
 3. Add password in [login.php](./admin/api/login.php) (`$solidPW`, `$dynamicPW`)
+
 4. Create MySQL table (fill in the table name):
 ```sql
 CREATE TABLE `` (
@@ -37,8 +40,15 @@ CREATE TABLE `` (
   `ctnt` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`ctnt`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
+
 5. Add MySQL info in [.htaccess](./admin/api/.htaccess)
-6. Change timezone if needed (search codebase `TimeZone`)
+
+6. Change timezone if needed (search codebase: `TimeZone`)
+
+7. Auth logics are all commented out.
+If you want this app to require login, search `TODO:` throughout this codebase. Then uncomment & modify the logics to fit your need.
+
+8. Modify lists of tire-sizes and wheel-sizes at [config file](/admin/src/config.js).
 
 
 

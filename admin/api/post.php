@@ -1,4 +1,6 @@
-<?php $goto='yard';require '../auth.php';
+<?php
+// TODO: REQUIRE_AUTH
+// $goto='accountance';require '../auth.php';
 
 header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

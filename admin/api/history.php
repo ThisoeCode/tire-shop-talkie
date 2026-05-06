@@ -1,5 +1,6 @@
 <?php
-$goto='accountance';require '../auth.php';
+// TODO: REQUIRE_AUTH
+// $goto='accountance';require '../auth.php';
 
 if(!isset($_GET['from'])){
   http_response_code(400); die;
@@ -29,3 +30,6 @@ while ($stmt->fetch()) {
 
 header('Content-Type: application/json');
 echo json_encode($data);
+
+$stmt->close();
+$insu->close();

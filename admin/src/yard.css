@@ -1,0 +1,453 @@
+/* CONFIG */
+:root{
+  --serif:"Noto Serif KR",serif;
+  --thisoe:#178577;
+  --hr:#777 dashed 2px;
+}
+
+
+
+/* RESET */
+html,body,
+i,a,p{all:unset}
+
+*, i,a,p{
+  user-select:none;
+  margin:0;
+  font-size:12pt;line-height:1;
+  font-weight:400;
+  font-optical-sizing: auto;
+}
+button{
+  all:unset;
+  display:flex;flex-direction:column;
+}
+i,section{display:flex;flex-direction:column}
+
+
+
+/* /////// */
+
+/* yard backplate */
+body{
+  min-height:100svh;
+  background:#333;
+}
+
+#yard{
+  align-items:center;
+  /* position:relative; */
+  width:100vw; max-width:822px;
+  min-height:calc(100svh - 27pt);
+  margin:0 auto;
+  padding-bottom:27pt; /* fixed submit btn */
+  outline:#ccc dashed 1px;
+  background:#fff;
+
+  &>hr{
+    width:100%; height:0;
+    margin:3pt 0; padding:0; outline:0;
+    border-width:0;
+    border-top:#aaa dashed 3px;
+  }
+  & h2{
+    margin:9pt auto;
+    font-size:18pt;
+    font-weight:bold;
+    font-family:var(--serif);
+  }
+}
+
+
+
+/******* CARID FIELD *******/
+
+#acar{
+  flex-direction:row;
+  gap:9pt;
+
+  &>#carid{
+    flex-direction:row;
+    align-items:center;
+    margin:12pt auto;
+    outline:#555 double 3pt;
+    border-radius:9pt;
+    background-color:#ffa;
+    &>.svg{
+      width:39pt;height:39pt;
+      padding:3pt;
+    }
+    &>input{
+      all:unset;
+      width:99pt; max-width:500pt;
+      padding:0 9pt;
+      border-radius:0 9pt 9pt 0;
+      font-size:39pt;
+      font-family:sans-serif;
+    }
+  }
+  &>#newcar{
+    width:39pt;height:39pt;
+    margin:auto;
+    background-color:#ffa;
+    border:var(--thisoe) double 3pt;
+    border-radius:9pt;
+    & .svg{
+      width:58%;height:58%;
+      margin:auto;
+    }
+  }
+}
+
+
+
+/******* MAIN OPTIONS BLOCK *******/
+
+#optswrap{
+  gap:9pt;
+  &>h2{
+    display:none;
+    margin:auto;
+    font-size:20pt;
+  }
+}
+section{
+  width:calc(95vw - 3pt); max-width:360pt;
+  margin:0 auto;
+  outline:var(--thisoe) solid 3px;
+  border-radius:9pt;
+
+  & .selected-item{
+    position:relative;
+    width:100%;
+    flex-direction:row;
+    align-items:center;
+    border-radius:9pt 9pt 0 0;
+    background-color:chartreuse;
+    border-bottom:#777 dashed 2px;
+
+    &>.svg{
+      width:30pt;height:30pt;
+      margin:0 7pt;
+    }
+    &>span{
+      font-size:18pt;
+      line-height:2;
+      font-family:var(--serif);
+      font-weight:700;
+      text-overflow:ellipsis;white-space:nowrap;overflow:hidden;
+    }
+    &>.del{
+      position:absolute;
+      top:50%; right:7pt;
+      transform:translateY(-50%);
+      height:72%; aspect-ratio:1;
+      border-radius:7pt;
+      &:hover,&:active{background-color:#ffa}
+    }
+  }
+
+  & .step{
+    padding:3pt 9pt;
+
+    &.item{
+      margin:0 auto;
+      align-items:stretch;
+      &>button{
+        width:100%;
+        flex-direction:row;
+        align-items:center;
+        margin:0 auto;
+        padding-right:3pt;
+        transition:background-color .2s ease;
+        &:hover,&:active{background-color:aquamarine;}
+
+        &>.svg{
+          width:36pt;height:36pt;
+          margin-right:7pt;
+        }
+        &>span{
+          font-size:20pt;
+          line-height:2;
+          font-family:var(--serif);
+          font-weight:700;
+        }
+      }
+      &>hr:last-child{visibility:hidden}
+    }
+
+    &.detail,&.new{
+      &>i{
+        padding:3pt 0;
+        &>input{
+          padding:3pt;
+          font-size:16pt;
+          &.iprice,&.iper{font-weight:bold}
+          &.iprice{background-color:#edf}
+          &.iper,&.icount{background-color:#cef}
+        }
+      }
+
+      & .cb-wrap{
+        flex-direction:column;
+        padding:0;
+      }
+      & .newcbs, & .ttlcbs{ /* see #checks-wrap */
+        border-bottom:var(--hr);
+        padding-bottom:9pt;
+      }
+    }
+
+    &.detail{
+      & .iminus-wrap{
+        flex-direction:row;
+        align-items:center;
+        &>span{
+          width:30px;
+          font-size:9pt;
+          color:#700;
+        }
+        &>input{
+          width:-webkit-fill-available;
+          padding:3pt;
+          font-size:16pt;
+          background-color:#fcc;
+        }
+      }
+    }
+
+    &.new{
+      & .imodel, & .idesc{background-color:#cfc}
+
+      & .size{
+        align-items:center;
+        border-top:var(--hr); border-bottom:var(--hr);
+
+        & .isize-wrap{
+          flex-direction:row;
+          align-items:center;
+          gap:3pt;
+          &>input{
+            max-width:99pt;
+            padding:1pt 3pt;
+            font-size:16pt;
+            background-color:#cfc;
+          }
+        }
+
+        & .sizelist{
+          flex-direction:row;
+          flex-wrap:wrap;
+          justify-content:center;
+          margin:3pt 0;
+          gap:3pt;
+          &>button{
+            padding:3pt 7pt;
+            font-size:16pt;
+            font-family:sans-serif;
+            border:#333 solid 3px;
+            border-radius:7pt;
+            background-color:#cef;
+          }
+        }
+      }
+    }
+  }
+}
+
+#newopt{
+  width:99pt;height:39pt;
+  margin:9pt auto;
+  background-color:var(--thisoe);
+  border-radius:99pt;
+  & .svg{
+    width:72%;height:72%;
+    margin:auto;
+  }
+}
+
+
+
+/******* PURPLE FINALE BLOCK *******/
+
+#finale{
+  width:calc(95vw - 21pt); max-width:342pt;
+  gap:3pt;
+  margin:9pt 0 16pt;
+  border:purple solid 3px;
+  border-radius:9pt;
+
+  &>hr{
+    width:100%; height:0;
+    margin:0; padding:0; outline:0;
+    border-width:0;
+    border-top:purple dashed 1pt;
+  }
+
+  &>#finalnote{
+    flex-direction:row;
+    justify-content:center; align-items:center;
+    margin:0;
+    padding:7pt;
+    gap:3pt;
+
+    &>label{font-size:18px}
+    &>#fnn{
+      width: calc(90% - 72pt); min-width:72pt;
+      padding:3pt;
+      font-size:16pt;
+      border-color:#17a;
+      border-radius:3pt;
+      border-width:3px;
+    }
+  }
+
+  #ttl-wrap{
+    flex-direction:row;
+    justify-content:center; align-items:center;
+    margin:0;
+    padding:9pt 16pt;
+    background-color:purple;
+
+    &>label{
+      color:#fff;
+      padding-right:9pt;
+      font-size:16pt;font-weight:bold;
+    }
+    &>#ttl{
+      width:99pt;
+      padding:3pt 5pt;
+      font-size:16pt;
+      font-weight:bold;
+      background-color:#fff;
+    }
+  }
+}
+
+
+
+/*******   PLAIN BLOCK *******/
+
+#plain{
+  width:calc(95vw - 3pt); max-width:360pt;
+  margin:0 auto;
+  outline:navy solid 3px;
+  border-radius:9pt;
+
+  & .t-wrap{
+    width:90%;
+    margin:auto;
+    gap:7pt;
+
+    &>i{
+      flex-direction:row;
+      align-items:center;
+      width: 100%;
+      height:fit-content;
+      border:navy inset 3px;
+      border-radius:3pt;
+      background-color:#01a2;
+
+      &>textarea{
+        all:unset;
+        resize:none;
+        flex:1;
+        height:45pt;
+        padding:3pt 7px;
+        font-size:16pt;
+        line-height:18pt;
+        font-family:sans-serif;
+        border-right: navy dashed 2px;
+      }
+      &>.del{
+        width:21pt; height:39pt;
+        padding:3pts;
+        aspect-ratio:1;
+        border-radius:7pt;
+        &:hover{background:#ffa}
+      }
+    }
+  }
+}
+
+#newplain{
+  width:99pt;
+  height:36pt;
+  margin:9pt auto;
+  background-color:navy;
+  border-radius:99pt;
+  & .svg{
+    height:72%;
+    margin:auto;
+  }
+}
+
+hr.after-plain{margin:9pt 0 !important;}
+
+
+
+/******* SUBMITTING *******/
+
+#submit{
+  position:fixed;
+  bottom:9pt; right:max(calc(50vw - 411px + 9pt), 9pt);
+  width:63pt; height:63pt;
+  background-color:var(--thisoe);
+  border-radius:99pt;
+  & .svg{
+    width:81%;height:81%;
+    margin:auto;
+  }
+}
+
+#backdrop{ z-index:9;
+  display:none;
+  position:fixed; left:0;top:0;
+  width:100dvw;height:100dvh;
+  background-color:#333c;
+  &>p{
+    margin:auto;
+    color:#fff;
+    font-size:50pt;
+    font-weight:bold;
+    transform:translateY(-7vh);
+  }
+}
+
+#checks-wrap,.newcbs,.ttlcbs{
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7pt;
+  padding:7pt;
+
+  &>.acheck{
+    flex-direction:row;
+    align-items:center;
+    gap:3pt;
+    padding:7pt 9pt;
+    border-radius:7px;
+    border:#17a solid 3px;
+    &.checked{
+      color:#fff;
+      background-color: #17a;
+      &>.cb{border-color:white}
+      &>.cb>svg{visibility:visible}
+    }
+
+    &>.cb{
+      padding:2px 0; /* checkmark svg is 20*16 so need to make a square*/
+      border:#333 solid 2px;
+      &>svg{visibility:hidden}
+    }
+    &>span{
+      font-size:16pt;
+      font-family:var(--serif);
+      font-weight:700;
+    }
+    &>input{display:none}
+  }
+
+  input.ncbval{display:none}
+}

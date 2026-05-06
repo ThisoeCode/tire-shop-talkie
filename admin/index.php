@@ -1,6 +1,5 @@
 <?php
-$goto='index';
-require 'auth.php';
+// $goto='index';require 'auth.php';
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +76,8 @@ require 'auth.php';
 
 <nav>
   <img src="../public/favicon_round.png"alt="ACME TIRE"loading="lazy"/>
-  <button onclick="location.href='api/logout'">로그아웃</button>
+  <!-- TODO: LOGOUT_BTN -->
+  <!-- <button onclick="location.href='api/logout'">로그아웃</button> -->
 </nav>
 
 <main>

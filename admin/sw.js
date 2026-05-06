@@ -26,7 +26,7 @@ self.addEventListener('message',async e=>{
       await self.registration.getNotifications({tag:'new_bill'})
     ).forEach(n=>n.close())
     // Show the new notification
-    self.registration.showNotification('새로운 계산서가 수신되었습니다.',{
+    self.registration.showNotification('새로운 계산서가 왔습니다.',{
       icon:'../public/favicon.ico',
       body:`[${carid}호] 총${ttl}원`,
       tag:'new_bill',

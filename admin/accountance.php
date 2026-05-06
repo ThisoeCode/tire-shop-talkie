@@ -1,5 +1,5 @@
 <?php
-$goto='accountance';require 'auth.php';
+// $goto='accountance';require 'auth.php';
 // $t=time();
 ?>
 <!DOCTYPE html>
@@ -11,12 +11,12 @@ $goto='accountance';require 'auth.php';
   <link rel="icon"href="../public/favicon.ico"/>
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="src/config.js?v1"></script>
-  <script src="src/accountance.js?v1"></script>
+  <script src="src/config.js?v3"></script>
+  <script src="src/accountance.js?v3"></script>
   <!-- CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/svg.css?v1">
-  <link rel="stylesheet" href="src/_.css?v1">
+  <link rel="stylesheet" href="../public/svg.css?v3">
+  <link rel="stylesheet" href="src/acc.css?v2">
 </head>
 
 <body><i id="accountance">
@@ -41,6 +41,7 @@ $goto='accountance';require 'auth.php';
   <table>
     <tr id="th"><!-- Dynamic --></tr>
   </table>
+  <p id="emptyrow" style="display:none">( <span></span> 기록 없음 )</p>
 </i></body>
 
 </html>

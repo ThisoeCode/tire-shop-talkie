@@ -1,4 +1,15 @@
 <?php
+
+
+
+// TODO: if auth logic is applied, comment out the following 3 lines
+
+// SKIP LOGIN
+header('Location: /admin');
+exit;
+
+
+
 session_start();
 if ($_SESSION['logged_in'] ?? false) {
   header('Location: /admin');
