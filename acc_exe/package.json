@@ -1,0 +1,30 @@
+{
+  "name": "@thisoe/tire-shop-talkie.acc_exe",
+  "version": "0.1.0",
+  "description": "desktop version of ThisoeCode/tire-shop-talkie powered by Electron",
+  "keywords": [
+    "electron",
+    "jquery"
+  ],
+  "homepage": "https://github.com/ThisoeCode/tire-shop-talkie#readme",
+  "bugs": {
+    "url": "https://github.com/ThisoeCode/tire-shop-talkie/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThisoeCode/tire-shop-talkie.git",
+    "directory": "acc_exe"
+  },
+  "license": "MIT",
+  "author": "Thisoe",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "electron": "^42.0.1",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
