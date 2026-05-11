@@ -12,11 +12,11 @@
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="src/config.js?v3"></script>
-  <script src="src/accountance.js?v3"></script>
+  <script src="src/accountance.js?v4"></script>
   <!-- CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../public/svg.css?v3">
-  <link rel="stylesheet" href="src/acc.css?v2">
+  <link rel="stylesheet" href="src/acc.css?v3">
 </head>
 
 <body><i id="accountance">

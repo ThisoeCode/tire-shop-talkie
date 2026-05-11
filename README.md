@@ -67,7 +67,7 @@ This dir contains an npm package of desktop version of Accountance page, for bet
 ## TODO List for Repo Cloners
 
 1. Change the URLs to your domain where `public_html` is hosted & DNS-ed
-    - Search `TODO` throughout `acc_exe`.
+    - Search `TODO.com` throughout `acc_exe`.
 
 2. Fill out `.env.example` and change filename to `.env.local`
 
@@ -79,7 +79,10 @@ This dir contains an npm package of desktop version of Accountance page, for bet
 
 # TODO List for Devs
 
+> <i>Search `/** @todo` throughout codebase</i>
+
 ### `public_html/`
+- [ ] Air pressure unit conversion calculator `단위계산기`
 - [ ] Design the roadmap for `task_stat` system
 
 ### `acc_exe/`

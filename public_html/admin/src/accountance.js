@@ -83,9 +83,10 @@ const
       {row, dt:unix, carid, opts=[], cbs, plain, ttl} = adata,
       isOptEmpty = opts.length===1 && opts[0].desc==='',
       rowspan = `rowspan="${
-        (isOptEmpty?0:opts.length)
+        ((isOptEmpty?0:opts.length)
           +(!!cbs&&1)
           +(!!plain&&1)
+        )||1
       }"`,
       R=`class="r${row}"`,
       trs = [],
@@ -119,7 +120,7 @@ const
     : isOptEmpty
       ? cbs
         ? $tr0.append(`<td class="cbs" colspan="5"><span class="info">기타사항</span>${cbs.join(' · ')}</td>`)
-        : $tr0.append(`<td colspan="5"><span class="info" style="color:#a33">- 기록 없음 -</span></td>`)
+        : $tr0.append(`<td colspan="5"><span class="info" style="color:#a33">- 내역 없음 -</span></td>`)
       : $tr0
         .append(`<td>${firstOpt.desc||''}</td>`)
         .append(`<td>${x0000(firstOpt.per)||''}</td>`)
@@ -258,7 +259,6 @@ const
     $('#notification>.bell')
       .removeClass(bell?'off':'on')
       .addClass(bell?'on':'off')
-    // $('#notification>p').text(bell?'알람 끄기':'알람 켜기')
   },
 
   NOTIFICATE=row=>{if(bell){

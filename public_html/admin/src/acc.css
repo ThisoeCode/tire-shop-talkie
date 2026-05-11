@@ -28,7 +28,7 @@ i,a,p{all:unset}
   font-size:12pt;line-height:1;
   font-weight:400;
 }
-i{display:flex;flex-direction:column}
+i,nav{display:flex;flex-direction:column}
 
 
 
@@ -43,7 +43,7 @@ header{
   display:flex;flex-direction:row;
   align-items:center;
   justify-content:space-between;
-  width:calc(100vw - 36pt);
+  width:calc(100% - 36pt);
   height:39pt;
   padding:9pt 18pt;
   border-bottom:#ccc solid 1px;
