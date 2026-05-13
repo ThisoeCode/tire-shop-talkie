@@ -23,8 +23,10 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "electron": "^42.0.0"
+  },
   "dependencies": {
-    "electron": "^42.0.1",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

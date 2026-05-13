@@ -4,18 +4,57 @@
   <!-- META -->
   <meta charset="utf-8">
   <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; connect-src 'self' https://TODO.com"
-  />
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self' https://ajax.googleapis.com; connect-src 'self' https://TODO.com; style-src 'self' 'unsafe-inline' https://TODO.com; img-src 'self' data: https://TODO.com"
+/>
   <title>ACME TIRE - 데스크톱</title>
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <!-- <script src="src/config.js?v0"></script> -->
+  <script src="src/config.js"></script>
+  <script src="src/acc_desktop.js"></script>
   <!-- CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="src/acc.css?v0"> -->
+  <link rel="stylesheet" href="https://TODO.com/public/svg.css?v0">
+  <link rel="stylesheet" href="https://TODO.com/admin/src/acc.css?v0">
+  <style>
+    header{
+      height:30pt;
+      padding:5pt 12pt;
+      gap:9pt;
+      justify-content:left;
+      #logo,#logo>img{height:24pt}
+      &>#settings>#notification{
+        width:18pt; height:18pt;
+        padding:3pt !important;
+        border-radius:99pt;
+      }
+      & button:has(i.on){box-shadow:0 0 3pt #178577 !important;}
+    }
+  </style>
 </head>
-<body>
-  Oh, hi!
-</body>
+
+<body><i id="accountance">
+  <header>
+    <a href="#" id="logo" title="새로 고침">
+      <img src="https://TODO.com/public/favicon_round.png"alt="ACME TIRE"loading="lazy"/>
+    </a>
+    <nav id="settings">
+      <button id="notification">
+        <i class="bell off svg"></i>
+      </button>
+    </nav>
+  </header>
+
+  <i id="dtform">
+    <button id="delsel"disabled>삭제</button>
+    <input type="date"id="calendar">
+    <button id="limittoday"style="display:none">오늘</button>
+  </i>
+
+  <table>
+    <tr id="th"><!-- Dynamic --></tr>
+  </table>
+  <p id="emptyrow" style="display:none">( <span></span> 기록 없음 )</p>
+</i></body>
+
 </html>

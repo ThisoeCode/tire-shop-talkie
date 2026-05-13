@@ -15,7 +15,7 @@ to the accounting office.
 # `public_html/`
 This dir contains the main files to put in your LAMP server.
 
-## About
+### About
 
 - Required preparation (stack):
 an LAMP server (uses `.htaccess` and MySQL)
@@ -26,7 +26,7 @@ an LAMP server (uses `.htaccess` and MySQL)
 for customization or translation of the app to English, Chinese, or Japanese.
 
 
-## TODO List for Repo Cloners
+### TODO List for Repo Cloners
 
 1. Change site name (search codebase `ACME TIRE`)
 
@@ -64,12 +64,12 @@ CREATE TABLE `` (
 # `acc_exe/`
 This dir contains an npm package of desktop version of Accountance page, for better notification features.
 
-## TODO List for Repo Cloners
+### TODO List for Repo Cloners
 
-1. Change the URLs to your domain where `public_html` is hosted & DNS-ed
+1. Setting up [`public_html/`](#todo-list-for-repo-cloners) is **required**
+
+2. Change the URLs to your domain where `public_html` is hosted & DNS-ed
     - Search `TODO.com` throughout `acc_exe`.
-
-2. Fill out `.env.example` and change filename to `.env.local`
 
 
 
@@ -81,11 +81,11 @@ This dir contains an npm package of desktop version of Accountance page, for bet
 
 > <i>Search `/** @todo` throughout codebase</i>
 
-### `public_html/`
+## `public_html/`
 - [ ] Air pressure unit conversion calculator `단위계산기`
 - [ ] Design the roadmap for `task_stat` system
 
-### `acc_exe/`
+## `acc_exe/`
 - [ ] Make Electron desktop app for accountance page
 - [ ] Update readme page for package ``
 
