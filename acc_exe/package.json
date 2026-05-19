@@ -21,10 +21,23 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build:win": "electron-builder --windows portable",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "build": {
+    "productName": "ACME TIRE",
+    "appId": "com.ACME_TIRE.TALKIE",
+    "win": {
+      "icon": "src/favicon.ico",
+      "target": ["portable"]
+    },
+    "portable": {
+      "artifactName": "ACME TIRE.exe"
+    }
+  },
   "devDependencies": {
-    "electron": "^42.0.0"
+    "electron": "^42.0.0",
+    "electron-builder": "^26.8.1"
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1"

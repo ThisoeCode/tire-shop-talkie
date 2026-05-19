@@ -1,0 +1,105 @@
+html,body{background:transparent}
+*{
+  margin:0;
+  cursor:pointer;
+  user-select:none;
+  font-family:system-ui;
+}
+body{
+  box-sizing:border-box;
+}
+
+/* 300 x 120 */
+
+main{
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  width:100vw; height:100vh;
+  align-items:center;
+  background-color:white;
+  border-radius:7pt;
+  overflow:hidden;
+  background-color:#eee;
+}
+
+nav{
+  -webkit-app-region:drag;
+  display:flex; flex-direction:row;
+  align-items:center;
+  width:100%;
+  height:30px;
+  gap:7pt;
+  background-color:#333;
+}
+
+b{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:21px; height:21px;
+  margin-left:7px;
+  font-size:16px;
+  text-align:center;
+  background-color:gold;
+  border-radius:99pt;
+}
+
+#dt{
+  flex:1;
+  font-size:16px;
+  color:white;
+}
+
+button{
+  -webkit-app-region:no-drag !important;
+  all:unset;
+  position:relative;
+  width:30px;
+  height:30px;
+  transition:.2s ease;
+  background:transparent;
+  &:hover{
+    background-color:tomato;
+    &::before,&::after{
+      background-color:white;
+    }
+  }
+}
+
+#carid{
+  padding:9px 18px;
+  font-size:36px;
+  line-height:1;
+  font-weight:bolder;
+  color:white;
+  background-color:#178577;
+  border-radius:9pt;
+}
+
+#msg{
+  width:81vw;
+  padding-bottom:9px;
+  font-size:16px;
+  line-height:1;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-family:serif;
+}
+
+/* draw X */
+button::before,button::after{content:'';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 50%;
+  height:1pt;
+  background-color:#aaa;
+}
+button::before{
+  transform: translateY(-50%) rotate(45deg);
+}
+button::after{
+  transform: translateY(-50%) rotate(-45deg);
+}

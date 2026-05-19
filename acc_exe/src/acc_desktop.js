@@ -312,6 +312,9 @@ $('#limittoday').click(function(){
   calendar()
 })
 
+// Toggle notification on click
+$('#notification').click(bellToggle)
+
 // DEL
 $('table').on('change','.sel',function(){
   const

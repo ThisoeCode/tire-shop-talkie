@@ -86,7 +86,7 @@ This dir contains an npm package of desktop version of Accountance page, for bet
 - [ ] Design the roadmap for `task_stat` system
 
 ## `acc_exe/`
-- [ ] Make Electron desktop app for accountance page
-- [ ] Update readme page for package ``
+- [x] Make Electron desktop app for accountance page
+- [ ] Add README.md under `acc_exe`, write instructions for exporting app as portable exe
 
 
